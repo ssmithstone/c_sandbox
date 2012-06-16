@@ -18,6 +18,12 @@ void function_to_mess_with_pointers( int ** intPtr){
     (*intPtr) = &newint;
 }
 
+void function_to_mess_with_pointer_to_change_the_value_that_the_pointer_is_pointing_to(int * intptr ){
+    printf("value of intptr in function %d\n" , *(intptr));
+    (*intptr) = 99;
+    printf("value of intptr in function %d\n" , *(intptr));
+}
+
 
 
 int main(int argc, const char * argv[])
@@ -28,9 +34,12 @@ int main(int argc, const char * argv[])
 
     printf("a in main %d\n" , a);
     printf("intptr pointing to a in main %d\n" , *intptr);
-    function_to_mess_with_pointers(&intptr);
+//    function_to_mess_with_pointers(&intptr);
 
-    printf("intptr value after function call in main %d\n" , *intptr);
+//    printf("intptr value after function call in main %d\n" , *intptr);
+
+    function_to_mess_with_pointer_to_change_the_value_that_the_pointer_is_pointing_to(intptr);
+    printf("a value after function call in main %d\n" , a);
 
     return 0;
 }
