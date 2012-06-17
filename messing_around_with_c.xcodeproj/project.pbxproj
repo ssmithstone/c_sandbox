@@ -26,6 +26,8 @@
 		DBDD5F8211278F0C195B21C5 /* messing_around_with_c */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = messing_around_with_c; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBDD5F8211278F0C195B21CE /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		DBDD5F8211278F0C195B21D0 /* messing_around_with_c.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = messing_around_with_c.1; sourceTree = "<group>"; };
+		DBDD5F8211278F0C195B21D2 /* Basic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Basic.h; path = "../../../../../../usr/local/Cellar/cunit/2.1-2/include/CUnit/Basic.h"; sourceTree = "<group>"; };
+		DBDD5F8211278F0C195B21D3 /* test_main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_main.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,8 +44,10 @@
 		DBDD5F8211278F0C195B21C1 = {
 			isa = PBXGroup;
 			children = (
+				DBDD5F8211278F0C195B21D2 /* Basic.h */,
 				DBDD5F8211278F0C195B21C2 /* Products */,
 				DBDD5F8211278F0C195B21CD /* messing_around_with_c */,
+				DBDD5F8211278F0C195B21D4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,11 +62,19 @@
 		DBDD5F8211278F0C195B21CD /* messing_around_with_c */ = {
 			isa = PBXGroup;
 			children = (
+				DBDD5F8211278F0C195B21D3 /* test_main.c */,
 				DBDD5F8211278F0C195B21D0 /* messing_around_with_c.1 */,
 				DBDD5F8211278F0C195B21CE /* main.c */,
 			);
 			path = messing_around_with_c;
 			sourceTree = "<group>";
+		};
+		DBDD5F8211278F0C195B21D4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<absolute>";
 		};
 /* End PBXGroup section */
 

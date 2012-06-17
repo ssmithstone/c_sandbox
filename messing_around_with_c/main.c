@@ -9,37 +9,54 @@
 #include <stdio.h>
 
 
-void function_to_mess_with_pointers(int **intPtr);
+void function_to_move_pointer_to_another_value_and_leave_initial_value_as_was(int **intPtr);
+void function_to_move_pointer_to_change_the_value_that_the_pointer_is_pointing_to(int *intPtr);
+void function_one();
+void function_two();
 
-void function_to_mess_with_pointers( int ** intPtr){
+void function_to_move_pointer_to_another_value_and_leave_initial_value_as_was(int **intPtr) {
 
-    printf("value of intptr in function %d\n" , *(*intPtr));
-    int newint = 1000;
-    (*intPtr) = &newint;
+    printf("value of intptr in function before change %d\n", *(*intPtr));
+    int a = 1000;
+    (*intPtr) = &a;
+    printf("value of intptr in function after change %d\n", *(*intPtr));
 }
 
-void function_to_mess_with_pointer_to_change_the_value_that_the_pointer_is_pointing_to(int * intptr ){
-    printf("value of intptr in function %d\n" , *(intptr));
-    (*intptr) = 99;
-    printf("value of intptr in function %d\n" , *(intptr));
+
+void function_to_move_pointer_to_change_the_value_that_the_pointer_is_pointing_to(int *intPtr) {
+    printf("value of intPtr top of before change function %d\n", *(intPtr));
+    (*intPtr) = 99;
+    printf("value of intPtr bottom of after change function %d\n", *(intPtr));
 }
 
 
 
-int main(int argc, const char * argv[])
-{
-
+void function_one() {
     int a = 10;
-    int *intptr = &a;
+    int *aIntPtr = &a;
 
-    printf("a in main %d\n" , a);
-    printf("intptr pointing to a in main %d\n" , *intptr);
-//    function_to_mess_with_pointers(&intptr);
+    printf("a in main %d\n", a);
+    printf("aIntPtr pointing to a in main %d\n", *aIntPtr);
+    function_to_move_pointer_to_change_the_value_that_the_pointer_is_pointing_to(aIntPtr);
+    printf("aIntPtr pointing to a in main %d\n", *aIntPtr);
+    printf("a value after function call in main %d\n", a);
+}
 
-//    printf("intptr value after function call in main %d\n" , *intptr);
 
-    function_to_mess_with_pointer_to_change_the_value_that_the_pointer_is_pointing_to(intptr);
-    printf("a value after function call in main %d\n" , a);
+void function_two() {
+    int b = 11;
+    int *bIntPtr = &b;
 
+    printf("b in main %d\n", b);
+    printf("bIntPtr pointing to b in main %d\n", *bIntPtr);
+    function_to_move_pointer_to_another_value_and_leave_initial_value_as_was(&bIntPtr);
+    printf("bIntPtr pointing to b in main %d\n", *bIntPtr);
+    printf("b in main after pointer function %d\n", b);
+}
+
+int main(int argc, const char *argv[]) {
+
+    function_one();
+    function_two();
     return 0;
 }
