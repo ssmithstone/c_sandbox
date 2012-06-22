@@ -1,10 +1,3 @@
-//
-//  main.c
-//  messing_around_with_c
-//
-//  Created by Stephen Smithstone on 06/16/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
-//
 
 #include <stdio.h>
 
@@ -16,42 +9,55 @@ void function_two();
 
 void function_to_move_pointer_to_another_value_and_leave_initial_value_as_was(int **intPtr) {
 
-    printf("value of intptr in function before change %d\n", *(*intPtr));
+    printf("\t\tmoving pointer value to another value\n");
+    printf("\t\tvalue of intPtr in function before change %d\n", *(*intPtr));
     int a = 1000;
     (*intPtr) = &a;
-    printf("value of intptr in function after change %d\n", *(*intPtr));
+    printf("\t\tvalue of intPtr in function after change %d\n", *(*intPtr));
 }
 
 
 void function_to_move_pointer_to_change_the_value_that_the_pointer_is_pointing_to(int *intPtr) {
-    printf("value of intPtr top of before change function %d\n", *(intPtr));
+    printf("\t\tChannging value that is being pointed to\n");
+    printf("\t\tvalue of intPtr top of before change function %d\n", *(intPtr));
     (*intPtr) = 99;
-    printf("value of intPtr bottom of after change function %d\n", *(intPtr));
+    printf("\t\tvalue of intPtr bottom of after change function %d\n", *(intPtr));
 }
 
 
 
 void function_one() {
+
     int a = 10;
     int *aIntPtr = &a;
-
-    printf("a in main %d\n", a);
-    printf("aIntPtr pointing to a in main %d\n", *aIntPtr);
+    printf("\nGoing to change the value of the int via the pointer\n");
+    printf("\ta in main %d\n", a);
+    printf("\ta memory in main before pointer function %p\n", &a);
+    printf("\taIntPtr pointing to a in main %d\n", *aIntPtr);
+    printf("\taIntPtr pointing to memory in main %p\n", aIntPtr);
     function_to_move_pointer_to_change_the_value_that_the_pointer_is_pointing_to(aIntPtr);
-    printf("aIntPtr pointing to a in main %d\n", *aIntPtr);
-    printf("a value after function call in main %d\n", a);
+    printf("\taIntPtr pointing to a in main %d\n", *aIntPtr);
+    printf("\taIntPtr pointing to memory in main %p\n", aIntPtr);
+    printf("\ta value after function call in main %d\n", a);
+    printf("\ta memory in main after pointer function %p\n", &a);
+
 }
 
 
 void function_two() {
     int b = 11;
     int *bIntPtr = &b;
+    printf("\nGoing to change the value of the using the pointer but leave the value of var alone\n");
 
-    printf("b in main %d\n", b);
-    printf("bIntPtr pointing to b in main %d\n", *bIntPtr);
+    printf("\tb in main %d\n", b);
+    printf("\tb memory in main before pointer function %p\n", &b);
+    printf("\tbIntPtr pointing to b in main %d\n", *bIntPtr);
+    printf("\tbIntPtr pointing to memory in main %p\n", bIntPtr);
     function_to_move_pointer_to_another_value_and_leave_initial_value_as_was(&bIntPtr);
-    printf("bIntPtr pointing to b in main %d\n", *bIntPtr);
-    printf("b in main after pointer function %d\n", b);
+    printf("\tbIntPtr pointing to b in main %d\n", *bIntPtr);
+    printf("\tbIntPtr pointing to memory in main %p\n", bIntPtr);
+    printf("\tb in main after pointer function %d\n", b);
+    printf("\tb memory in main after pointer function %p\n", &b);
 }
 
 int main(int argc, const char *argv[]) {
