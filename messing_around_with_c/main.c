@@ -69,9 +69,26 @@ void datatypes_ints(){
     printf("base 16 = %d\n" , base16);
 }
 
+void datatypes_floats(){
+    float a = 2;
+    float b = 2.0;
+    float c = 2.08;
+    float d = 2.02e9;
+    printf("a = %.3#f\n" , a);
+    printf("a = %g\n" , a);
+    printf("b = %f\n" , b);
+    printf("b = %g\n" , b);
+    printf("c = %f\n" , c);
+    printf("c = %g\n" , c);
+    printf("d = %f\n" , d);
+    printf("d = %g\n" , d);
+
+}
+
 int main(int argc, const char *argv[]) {
 
-    datatypes_ints();
+//    datatypes_ints();
+    datatypes_floats();
 //    function_one();
 //    function_two();
     return 0;
