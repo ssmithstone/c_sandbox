@@ -60,9 +60,19 @@ void function_two() {
     printf("\tb memory in main after pointer function %p\n", &b);
 }
 
+void datatypes_ints(){
+    int base10 = 17;
+    int base8 = 0127;
+    int base16 = 0x2F;
+    printf("base 10 = %d\n" , base10);
+    printf("base 8 = %d\n" , base8);
+    printf("base 16 = %d\n" , base16);
+}
+
 int main(int argc, const char *argv[]) {
 
-    function_one();
-    function_two();
+    datatypes_ints();
+//    function_one();
+//    function_two();
     return 0;
 }
